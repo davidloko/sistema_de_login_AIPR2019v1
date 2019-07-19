@@ -7,6 +7,6 @@ Criação do arquivo index.php e formulário de login.
 
 ## aula02 - 19/07/2019 
 :rocket: :moon: 50 anos do homem na lua
-Formulário de cadaastro de novo usuário.
+Formulário de cadastro de novo usuário.
 Formulário de Recuperação de Senha.
 Mostrar e ocultar formulários com jQuery.
