@@ -25,9 +25,7 @@
         <section class="row">
             <div class="col-lg-4 offset-lg-4" id="alerta">
                 <div class="alert alert-success text-center">
-                    <strong id="resultado">
-                        Maravilhoso mundo sem o Sublime!
-                    </strong>
+                    <strong id="resultado"></strong>
                 </div>
             </div>
         </section>
@@ -36,7 +34,7 @@
         <section class="row mb-5">
             <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaLogin">
                 <h2 class="text-center mt-2">Entrada no sistema</h2>
-                <form action="#" id="formLogin" class="p-2">
+                <form id="formLogin" class="p-2">
 
                     <div class="form-group">
                         <input type="text" name="nomeUsuario" id="nomeUsuario" class="form-control" placeholder="Nome do usuário" minlength="5" required>
@@ -159,9 +157,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+
     <script>
         /* jQuery */
         $(function() {
+            // Front-end
+            // Preparação dos dados para envio para o back-end
+
+            // Envio dos dados do formulário de login
+            $('#btnEntrar').click(function(e) {
+                let formLogin = document.querySelector("#formLogin");
+                if (formLogin.checkValidity()) {
+                    e.preventDefault(); // Não recarregar a página
+                    $.ajax({
+                        url: 'recebe.php',
+                        method: 'post',
+                        data: $('#formLogin').serialize() + '&action=login',
+                        success: function(resposta) {
+                            $('#alerta').show();
+                            $('#resultado').html("resposta:"+resposta);
+                        }
+                    });
+                }
+            });
+
+            // Formulário de Cadastro de usuário
+            $('#btnRegistrar').click(function(e) {}});
+
+            // Formulário para mudar a senha
+            $('#btnEnviarEmail').click(function(e) {}});
 
             //Trocar da Tela de Login para Recuperar Senha
             $("#btnEsqueci").click(function() {
@@ -221,4 +245,5 @@
         });
     </script>
 </body>
+
 </html>
