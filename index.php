@@ -243,6 +243,7 @@
             $("#formLogin").validate();
             $("#formSenha").validate();
 
+            
             $.validator.setDefaults({
                 success: "valid"
             });
