@@ -14,6 +14,6 @@ if($conecta->connect_error){
     die("Não foi possível conectar ao Banco de dados: " 
             . $conexão->connect_error);}
 else{
-    echo "<h1>Conectou no BD Manowwwwww!</h1>";
+//  echo "<h1>Conectou no BD Manowwwwww!</h1>";
 };
 
