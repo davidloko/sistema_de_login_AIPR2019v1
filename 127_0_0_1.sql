@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Ago-2019 às 14:15
+-- Tempo de geração: 23-Ago-2019 às 14:14
 -- Versão do servidor: 10.3.16-MariaDB
 -- versão do PHP: 7.3.7
 
@@ -30,8 +30,8 @@ USE `sistemadelogin`;
 --
 -- Estrutura da tabela `usuario`
 --
--- Criação: 23-Ago-2019 às 17:10
--- Última actualização: 23-Ago-2019 às 17:10
+-- Criação: 23-Ago-2019 às 17:09
+-- Última actualização: 23-Ago-2019 às 17:09
 --
 
 DROP TABLE IF EXISTS `usuario`;
