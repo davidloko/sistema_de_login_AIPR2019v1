@@ -26,6 +26,7 @@ if(
 
     $busca = $sql->fetch();
     if($busca != null ){
+        $_SESSION['nomeUsuario'] = $nomeUsuario;
         echo "OK";
     }else{
         echo "Usuário e senha não conferem!";
