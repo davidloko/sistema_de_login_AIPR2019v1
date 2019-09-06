@@ -10,7 +10,6 @@ function verificar_entrada ($entrada) {
     $saida = htmlspecialchars($saida);
     return $saida;
 }
-
 if(
     isset($_POST['action']) &&
     $_POST['action'] == 'login'){
@@ -44,6 +43,8 @@ if(
         $senhaConfirma = verificar_entrada($_POST['senhaConfirma']);
         $concordar = $_POST['concordar'];
         $dataCriacao = date("Y-m-d H:i:s");
+        $avatar = verificar_entrada($_POST['avatar']);
+
 
         //Hash de senha / Codificação de senha em 40 caracteres
         $senha = sha1($senhaUsuario);
@@ -66,14 +67,14 @@ if(
             elseif ($linha['email'] == $emailUsuario) {
                 echo "<p>E-mail já incluso, tente outro</p>";
             }else {
-                $sql = $conecta->prepare("INSERT into usuario(nome, nomeUsuario, email, senha, dataCriacao) values(?,?,?,?,?)");
-                $sql->bind_param("sssss", $nomeCompleto, $nomeUsuario, $emailUsuario, $senha, $dataCriacao);
+                $sql = $conecta->prepare("INSERT into usuario(nome, nomeUsuario, email, senha, dataCriacao, foto) values(?,?,?,?,?,?)");
+                $sql->bind_param("ssssss", $nomeCompleto, $nomeUsuario, $emailUsuario, $senha, $dataCriacao, $avatar);
                 if($sql->execute()){
                     echo "<p>Registrado com sucesso!!</p>";
                 }else{
                     echo "<p>Algo deu errado. Tente outra vez.</p>";
                 }
-            }
+            } 
         }
 }else{
     echo "<h1 style='color:red'>Esta página não pode 

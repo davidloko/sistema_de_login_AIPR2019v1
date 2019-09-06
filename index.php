@@ -1,7 +1,7 @@
 <?php
-    session_start();
-    if(isset($_SESSION['nomeUsuario']))
-        header("location: profile.php");
+session_start();
+if (isset($_SESSION['nomeUsuario']))
+    header("location: profile.php");
 ?>
 
 
@@ -88,6 +88,9 @@
                     <div class="form-group">
                         <input type="password" name="senhaConfirma" id="senhaConfirma" class="form-control" placeholder="Confirme a sua senha" required minlength="6">
                     </div>
+                    <div class="form-group">
+                        <input type="text" name="avatar" id="avatar" class="form-control" placeholder="URL do seu avatar">
+                    </div>
                     <div class="form-group mt-5">
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" name="concordar" id="concordar" class="custom-control-input">
@@ -156,7 +159,7 @@
                         success: function(resposta) {
                             $('#alerta').show();
                             $('#resultado').html(resposta);
-                            if(resposta === "OK"){
+                            if (resposta === "OK") {
                                 window.location = "profile.php";
                             }
                         }
