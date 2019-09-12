@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06-Set-2019 às 16:44
+-- Tempo de geração: 12-Set-2019 às 16:37
 -- Versão do servidor: 10.3.16-MariaDB
 -- versão do PHP: 7.3.7
 
@@ -38,16 +38,18 @@ CREATE TABLE `usuario` (
   `email` varchar(100) COLLATE utf8mb4_bin NOT NULL,
   `senha` char(40) COLLATE utf8mb4_bin NOT NULL,
   `dataCriacao` datetime NOT NULL,
-  `foto` varchar(200) COLLATE utf8mb4_bin NOT NULL
+  `foto` varchar(200) COLLATE utf8mb4_bin NOT NULL,
+  `token` char(10) COLLATE utf8mb4_bin NOT NULL,
+  `tempo_de_vida` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`idUsuario`, `nome`, `nomeUsuario`, `email`, `senha`, `dataCriacao`, `foto`) VALUES
-(10, 'El Gato', 'Gatoow', 'gato@el.com', '3b1b19cef991b54f794b2d4044094c2f638a5590', '2019-09-06 15:50:20', 'https://cdn.destakjornal.com.br/images/2019-08/img_797x448$2019_08_30_13_08_57_55350.jpg'),
-(11, 'Roger', 'American', 'roger@ame', '1e3f0e5b97ea23fdd3889d24b258e2c21323122a', '2019-09-06 15:54:21', 'https://media1.tenor.com/images/d36b6a3377fc28b16bc342eb236116ee/tenor.gif?itemid=14756459');
+INSERT INTO `usuario` (`idUsuario`, `nome`, `nomeUsuario`, `email`, `senha`, `dataCriacao`, `foto`, `token`, `tempo_de_vida`) VALUES
+(10, 'El Gato', 'Gatoow', 'gato@el.com', '3b1b19cef991b54f794b2d4044094c2f638a5590', '2019-09-06 15:50:20', 'https://cdn.destakjornal.com.br/images/2019-08/img_797x448$2019_08_30_13_08_57_55350.jpg', '', '2019-09-12 19:29:46'),
+(11, 'Roger', 'American', 'roger@ame', '1e3f0e5b97ea23fdd3889d24b258e2c21323122a', '2019-09-06 15:54:21', 'https://media.giphy.com/media/Ln1xMngwbYfTy/giphy.gif', '', '2019-09-12 19:29:46');
 
 --
 -- Índices para tabelas despejadas
